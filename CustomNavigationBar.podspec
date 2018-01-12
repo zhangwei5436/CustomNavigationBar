@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO:基于view的自定义导航栏，适应于移动，透明度渐变，等场景
+TODO:基于view的自定义导航栏，适应于移动，透明度渐变，等场景随便写点吧
                        DESC
 
   s.homepage         = 'https://github.com/zhangwei5436/CustomNavigationBar'
