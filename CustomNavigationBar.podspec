@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'CustomNavigationBar'
   s.version          = '0.0.1'
-  s.summary          = 'CustomNavigationBar.'
+  s.summary          = '自定义导航栏 -> CustomNavigationBar.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: 测试能不能提交成功，真是玛法那 是抗生素.
+TODO:基于view的自定义导航栏，适应于移动，透明度渐变，等场景
                        DESC
 
   s.homepage         = 'https://github.com/zhangwei5436/CustomNavigationBar'

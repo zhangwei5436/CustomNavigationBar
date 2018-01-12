@@ -10,6 +10,9 @@
 #endif
 #endif
 
+#import "CustomNavigationBar.h"
+#import "JudgeMacro.h"
+#import "UIButton+BarButtonItem.h"
 
 FOUNDATION_EXPORT double CustomNavigationBarVersionNumber;
 FOUNDATION_EXPORT const unsigned char CustomNavigationBarVersionString[];
