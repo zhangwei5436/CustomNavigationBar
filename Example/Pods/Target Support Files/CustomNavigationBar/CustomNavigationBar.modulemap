@@ -1,0 +1,6 @@
+framework module CustomNavigationBar {
+  umbrella header "CustomNavigationBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

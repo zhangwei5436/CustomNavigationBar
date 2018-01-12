@@ -1,0 +1,22 @@
+{
+  "name": "CustomNavigationBar",
+  "version": "0.1.0",
+  "summary": "A short description of CustomNavigationBar.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zhangwei5436/CustomNavigationBar",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zhangwei5436": "825460068@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/zhangwei5436/CustomNavigationBar.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CustomNavigationBar/Classes/**/*"
+}
