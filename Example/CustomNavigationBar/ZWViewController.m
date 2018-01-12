@@ -7,6 +7,8 @@
 //
 
 #import "ZWViewController.h"
+#import "JudgeMacro.h"
+#import "MoveViewController.h"
 
 @interface ZWViewController ()
 
@@ -17,13 +19,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.title = @"测试demo";
+    UIButton * btn = [UIButton itemWithTarget:self action:@selector(click) title:@"进去"];
+    btn.frame = CGRectMake(30, 90, 100, 40);
+    [self.view addSubview:btn];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)click{
+    MoveViewController * move = [MoveViewController new];
+    [self.navigationController pushViewController:move animated:YES];
 }
 
 @end
