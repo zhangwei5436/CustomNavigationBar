@@ -1,6 +1,6 @@
 {
   "name": "CustomNavigationBar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "自定义导航栏 -> CustomNavigationBar.",
   "description": "TODO:基于view的自定义导航栏，适应于移动，透明度渐变，等场景随便写点吧",
   "homepage": "https://github.com/zhangwei5436/CustomNavigationBar",
@@ -13,10 +13,15 @@
   },
   "source": {
     "git": "https://github.com/zhangwei5436/CustomNavigationBar.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "CustomNavigationBar/Classes/**/*"
+  "source_files": "CustomNavigationBar/Classes/**/*",
+  "resource_bundles": {
+    "CustomNavigationBar": [
+      "CustomNavigationBar/Assets/*"
+    ]
+  }
 }

@@ -1,36 +1,62 @@
 //
-//  MoveViewController.m
+//  ImageViewController.m
 //  CustomNavigationBarDemo
 //
-//  Created by 张威 on 2018/1/11.
+//  Created by 张威 on 2018/1/9.
 //  Copyright © 2018年 张威. All rights reserved.
 //
 
-#import "MoveViewController.h"
+#import "ImageViewController.h"
+#import "CustomNavigationBar.h"
 #import "JudgeMacro.h"
+#import "UIButton+BarButtonItem.h"
 
-@interface MoveViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ImageViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) CustomNavigationBar *customNavBar;
 @property (nonatomic,strong) UITableView * tableView;
-
 @end
 
-@implementation MoveViewController
+@implementation ImageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self setUpTableView];
-    self.customNavBar.title = @"移动导航栏";
-    [self.view addSubview:self.customNavBar];
-    self.customNavBar.barBackgroundColor = [UIColor cyanColor];
-
+    [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
+    
+    self.customNavBar.title = @"导航图片背景";
+    self.customNavBar.titleTextColor = [UIColor cyanColor];
+    self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"imageNav"];
+    [self.customNavBar zb_setBackgroundAlpha:0];
+    
     if (@available(iOS 11.0, *)) { // 会缩进一个状态栏的高度
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }else{
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    // 自定义 左边按钮
+    UIButton * butt = [UIButton itemWithTarget:self action:@selector(click) title:@"返回"];
+    [self.customNavBar zb_setNavigationCustomLeftButton:butt];
+    
+    UIButton * rightButton = [UIButton itemWithTarget:self action:@selector(rightClick) title:@"push返回" font:[UIFont systemFontOfSize:15] titleColor:nil highlightedColor:nil titleEdgeInsets:UIEdgeInsetsZero];
+    rightButton.frame = CGRectMake(0, 0, 100, 100);
+    rightButton.backgroundColor = [UIColor greenColor];
+    [self.customNavBar zb_setNavigationCustomRightButton:rightButton];
+    
+    [self.customNavBar zb_setTintColor:[UIColor blackColor]];
+
 }
+
+-(void)rightClick
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)click
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(void)setUpTableView{
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kUIScreenWidth, kUIScreenHeight) style:UITableViewStylePlain];
     self.tableView.delegate   = self;
@@ -50,26 +76,15 @@
     CGFloat offsetY = scrollView.contentOffset.y;
     if (offsetY > 0)
     {
-        [UIView animateWithDuration:0.3 animations:^{
-//            self.customNavBar.offsetY = -NAVH();
-//            [self.customNavBar zb_setBackgroundAlpha:(fabs(offsetY)/170)];
-            // 跟随的模式
-            self.customNavBar.offsetY = -offsetY;
-            [UIView animateWithDuration:1 animations:^{
-                [self.customNavBar zb_setBackgroundAlpha:(fabs(10/offsetY))];
-            }];
-        }];
+        self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"millcolorGrad"];
     }
     else
     {
-        [UIView animateWithDuration:0.3 animations:^{
-            self.customNavBar.offsetY = 0;
-            [self.customNavBar zb_setBackgroundAlpha:1];
-        }];
+        self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"imageNav"];
     }
     
-    
-    NSLog(@"%f==%f",offsetY,(fabs(100/offsetY)));
+    [self.customNavBar zb_setBackgroundAlpha:(fabs(offsetY)/170)];
+    NSLog(@"%f==%f",offsetY,(fabs(offsetY)/210));
 }
 
 #pragma mark - Table view data source
@@ -99,7 +114,6 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
-
 
 -(CustomNavigationBar*)customNavBar
 {

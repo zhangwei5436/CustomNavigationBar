@@ -12,6 +12,7 @@
 
 #import "CustomNavigationBar.h"
 #import "JudgeMacro.h"
+#import "NSBundle+BundlleCategory.h"
 #import "UIButton+BarButtonItem.h"
 
 FOUNDATION_EXPORT double CustomNavigationBarVersionNumber;

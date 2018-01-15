@@ -11,6 +11,7 @@
 
 #import "CustomNavigationBar.h"
 #import "UIButton+BarButtonItem.h"
+#import "NSBundle+BundlleCategory.h"
 
 
 // 获得RGB颜色

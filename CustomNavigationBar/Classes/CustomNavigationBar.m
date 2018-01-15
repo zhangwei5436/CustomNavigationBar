@@ -300,7 +300,10 @@
         _defaultLeftButton = [[UIButton alloc] init];
         [_defaultLeftButton addTarget:self action:@selector(clickBack) forControlEvents:UIControlEventTouchUpInside];
         _defaultLeftButton.imageView.contentMode = UIViewContentModeCenter;
-        [_defaultLeftButton setImage:[UIImage imageNamed:@"navigation_back"] forState:UIControlStateNormal];
+        
+        NSBundle *currentBundle = [NSBundle core_myLibraryBundle:@"CustomNavigationBar" forClass:[self class]];
+        UIImage * image = [UIImage imageNamed:@"navigation_back" inBundle:currentBundle compatibleWithTraitCollection:nil];
+        [_defaultLeftButton setImage:image forState:UIControlStateNormal];
 //        _leftButton.hidden = NO;
     }
     return _defaultLeftButton;
