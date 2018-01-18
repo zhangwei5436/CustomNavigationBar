@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CustomNavigationBar'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = '自定义导航栏 -> CustomNavigationBar.'
 
 # This description is used to generate tags and improve search results.
