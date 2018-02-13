@@ -80,7 +80,7 @@
         self.backgroundColor = [UIColor clearColor];
         [self setUpChildViews];
 //        if (IsIphoneX()) {
-//            self.backgroundColor = [UIColor cyanColor];
+
 //        }
     }
     return self;
