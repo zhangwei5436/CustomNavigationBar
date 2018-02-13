@@ -304,7 +304,6 @@
         NSBundle *currentBundle = [NSBundle core_myLibraryBundle:@"CustomNavigationBar" forClass:[self class]];
         UIImage * image = [UIImage imageNamed:@"navigation_back" inBundle:currentBundle compatibleWithTraitCollection:nil];
         [_defaultLeftButton setImage:image forState:UIControlStateNormal];
-//        _leftButton.hidden = NO;
     }
     return _defaultLeftButton;
 }
