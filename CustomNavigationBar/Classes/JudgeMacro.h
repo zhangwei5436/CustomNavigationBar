@@ -37,23 +37,40 @@
 #define SelfTabBarHeight  self.tabBarController.tabBar.bounds.size.height
 #define StatusBarHeight   [UIApplication sharedApplication].statusBarFrame.size.height
 
+// 是否是留海屏 系列手机（X XS XSMax XR）
+static inline BOOL isIPhoneXSeries(){
+    BOOL iPhoneXSeries = NO;
+    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
+        return iPhoneXSeries;
+    }
+    
+    if (@available(iOS 11.0, *)) {
+        UIWindow * mainWindow = [[[UIApplication sharedApplication] delegate] window];
+        if (mainWindow.safeAreaInsets.bottom > 0.0) {
+            iPhoneXSeries = YES;
+        }
+    }
+    return iPhoneXSeries;
+}
 
 static inline CGFloat STATUSH() {
-    if (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812))) {
+    if (isIPhoneXSeries()) {
         return 44.0; // iPhoneX
     } else {
         return 20.0;
     }
 }
+
+
 static inline CGFloat NAVH() {
-    if (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812))) {
+    if (isIPhoneXSeries()) {
         return 44.0 + 44; // iPhoneX
     } else {
         return 20.0 + 44;
     }
 }
 static inline CGFloat TABH() {
-    if (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812))) {
+    if (isIPhoneXSeries()) {
         return 49.0 + 34; // iPhoneX
     } else {
         return 49.0;
